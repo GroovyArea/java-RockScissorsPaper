@@ -2,6 +2,7 @@ import Controller.Controller;
 import Model.Computer;
 import Model.ComputerNumber;
 import Model.Player;
+import org.hamcrest.Matcher;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,9 @@ public class RspWinTest {
     void gameLoseResult() throws RspException {
        result = Result.getGameResult(Rsp.PAPER, Rsp.ROCK);
 
-        assertThat(result == Result.LOSE);
+        assertThat(result == Result.LOSE).isTrue();
     }
+
 
     /*@Test
     @DisplayName("유저 : 주먹, 컴퓨터 : 가위")
@@ -44,7 +46,7 @@ public class RspWinTest {
     void gameWin(){
         result = Result.getGameResult(Rsp.SCISSORS, Rsp.PAPER);
 
-        assertThat(result == Result.WIN);
+        assertThat(result == Result.WIN).isTrue();
     }
 
     @Test
@@ -52,6 +54,6 @@ public class RspWinTest {
     void gameDraw(){
         result = Result.getGameResult(Rsp.ROCK,Rsp.ROCK);
 
-        assertThat(result == Result.DRAW);
+        assertThat(result == Result.DRAW).isTrue();
     }
 }
