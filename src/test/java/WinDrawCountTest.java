@@ -1,12 +1,11 @@
 import Enum.*;
-import Exception.RspException;
 import Model.WinDrawCount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class GameCountTest {
+public class WinDrawCountTest {
 
     @Test
     @DisplayName("게임 이겼을 시 카운트 개수")
