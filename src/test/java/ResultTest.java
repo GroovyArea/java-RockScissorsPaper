@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import Enum.*;
-import Exception.RspException;
+import Exception.*;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -13,31 +13,14 @@ public class ResultTest {
     @Test
     @DisplayName("게임 졌을 경우")
     void gameLoseResult() {
-       result = Result.getGameResult(Rsp.PAPER, Rsp.ROCK);
+        result = Result.getGameResult(Rsp.PAPER, Rsp.ROCK);
 
         assertThat(result == Result.LOSE).isTrue();
     }
 
-
-    /*@Test
-    @DisplayName("유저 : 주먹, 컴퓨터 : 가위")
-    void gameWin2(){
-        result = Result.getGameResult(Rsp.ROCK, Rsp.SCISSORS);
-
-        assertThat(result == Result.LOSE);
-    }
-
-    @Test
-    @DisplayName("유저 : 가위, 컴터 : 보")
-    void gameLose3(){
-        result = Result.getGameResult(Rsp.SCISSORS, Rsp.PAPER);
-
-        assertThat(result ==Result.getGameResult(Rsp.SCISSORS, Rsp.ROCK));
-    }*/
-
     @Test
     @DisplayName("게임에 이겼을 경우")
-    void gameWin(){
+    void gameWin() {
         result = Result.getGameResult(Rsp.SCISSORS, Rsp.PAPER);
 
         assertThat(result == Result.WIN).isTrue();
@@ -45,9 +28,17 @@ public class ResultTest {
 
     @Test
     @DisplayName("게임에 비겼을 경우")
-    void gameDraw(){
-        result = Result.getGameResult(Rsp.ROCK,Rsp.ROCK);
+    void gameDraw() {
+        result = Result.getGameResult(Rsp.ROCK, Rsp.ROCK);
 
         assertThat(result == Result.DRAW).isTrue();
     }
+
+    @Test
+    @DisplayName("진 결과가 들어갈 경우 예외 발생")
+    void validResultTest() {
+        assertThatExceptionOfType(GameCountException.class)
+                .isThrownBy(() -> Result.gameCount(Result.LOSE)).withMessage("진 결과를 받아올 수 없습니다.");
+    }
+
 }
