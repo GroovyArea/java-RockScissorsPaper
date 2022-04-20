@@ -1,13 +1,13 @@
 
 import Controller.Controller;
 import Enum.Result;
-import Exception.RspException;
+import Exception.*;
 import View.ViewInput;
 import View.ViewOutput;
 
 public class RspMain {
 
-    public static void main(String[] args) throws RspException {
+    public static void main(String[] args) throws RspException, GameCountException {
 
         // Controller 객체 생성
         Controller controller = new Controller();

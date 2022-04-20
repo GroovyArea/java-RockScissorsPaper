@@ -3,7 +3,7 @@ package Controller;
 import Enum.PrintGameResult;
 import Enum.Result;
 import Enum.Rsp;
-import Exception.RspException;
+import Exception.*;
 import Model.Computer;
 import Model.ComputerNumber;
 import Model.Player;
@@ -18,7 +18,7 @@ public class Controller {
 	private Computer computer;
 
 	// play 메서드
-	public void playRsp(Rsp playerRsp) throws RspException {
+	public void playRsp(Rsp playerRsp) throws RspException, GameCountException {
 
 		// 참가자 객체 생성
 		player = new Player(playerRsp);
@@ -34,7 +34,7 @@ public class Controller {
 	}
 
 	// 승리 무승부 카운트 변환 메서드
-	public void gameCount() {
+	public void gameCount() throws GameCountException {
 		Result.gameCount(result);
 	}
 	
