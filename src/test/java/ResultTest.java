@@ -1,37 +1,35 @@
+import Model.Computer;
+import Model.ComputerNumber;
+import Model.Player;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import Enum.*;
 import Exception.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.hamcrest.CoreMatchers.is;
 
 public class ResultTest {
 
-    private Result result;
+    // 게임 결과가 잘 나오는지 판단해야댐
+    // 어떻게 해볼가..?
+    private Player player;
+    private Computer computer;
 
-    @Test
-    @DisplayName("게임 졌을 경우")
-    void gameLoseResult() {
-        result = Result.getGameResult(Rsp.PAPER, Rsp.ROCK);
-
-        assertThat(result == Result.LOSE).isTrue();
+    @BeforeEach
+    void playerComputerRsp() {
+        player = new Player(Rsp.SCISSORS);
+        computer = new Computer(Rsp.PAPER.getValue());
     }
 
     @Test
-    @DisplayName("게임에 이겼을 경우")
-    void gameWin() {
-        result = Result.getGameResult(Rsp.SCISSORS, Rsp.PAPER);
-
+    @DisplayName("사용자 가위, 컴퓨터 보 => 이긴 결과")
+    void resultTest() throws RspException {
+        Result result = Result.getGameResult(player.getRsp(), computer.getComRsp());
         assertThat(result == Result.WIN).isTrue();
-    }
-
-    @Test
-    @DisplayName("게임에 비겼을 경우")
-    void gameDraw() {
-        result = Result.getGameResult(Rsp.ROCK, Rsp.ROCK);
-
-        assertThat(result == Result.DRAW).isTrue();
     }
 
     @Test
