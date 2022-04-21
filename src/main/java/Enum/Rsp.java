@@ -33,4 +33,8 @@ public enum Rsp {
 
 	}
 
+	public int getValue(){
+		return rockScissorsPaper;
+	}
+
 }
