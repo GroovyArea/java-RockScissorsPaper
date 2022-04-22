@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ComputerNumberTest {
 
-    static List<Integer> numbers1() {
+    static List<Integer> autoNumbers() {
         final List<Integer> numbers = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -32,7 +32,7 @@ public class ComputerNumberTest {
     @Test
     @DisplayName("컴퓨터 자동 번호들이 범위 안에서 잘 생성되는지?")
     void test() {
-        assertThat(numbers1()).contains(1,2,3);
+        assertThat(autoNumbers()).contains(1,2,3);
     }
 }
 

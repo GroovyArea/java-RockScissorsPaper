@@ -20,13 +20,9 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class PrintGameResultTest {
 
-    private List<Result> results;
-
-    private List<PrintGameResult> resultMessages;
-
     // 게임에서 진 경우와 이긴 경우의 결과 메세지가 잘 나오는지 살펴보자
 
-    static Stream<Arguments> rspResultsAndPrints(){
+    static Stream<Arguments> rspResultsAndPrints() {
         return Stream.of(
                 Arguments.arguments(Result.WIN, PrintGameResult.WIN_RESULT),
                 Arguments.arguments(Result.LOSE, PrintGameResult.LOSE_RESULT),
@@ -37,10 +33,9 @@ public class PrintGameResultTest {
     @ParameterizedTest(name = "게임 결과 : {0}, 출력 메시지 : {1}")
     @MethodSource("rspResultsAndPrints")
     @DisplayName("게임 결과 메시지가 상황에 맞게 잘 나오니?")
-    void ofTest(Result result, PrintGameResult printGameResult){
+    void ofTest(Result result, PrintGameResult printGameResult) {
         assertThat(PrintGameResult.of(result)).isEqualTo(printGameResult);
     }
-
 
 
 }
