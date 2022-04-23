@@ -34,8 +34,10 @@ public enum Result {
         switch (result) {
             case WIN:
                 WinDrawCount.plusWinCount();
+                break;
             case DRAW:
                 WinDrawCount.plusDrawCount();
+                break;
             default:
                 throw new GameCountException(RESULT_EXCEPTION);
         }
