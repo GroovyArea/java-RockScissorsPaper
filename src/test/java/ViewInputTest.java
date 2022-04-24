@@ -25,9 +25,9 @@ public class ViewInputTest {
     @ParameterizedTest
     @ValueSource(ints = {4, -2, 199, 349})
     @DisplayName("잘못 입력했을 경우 예외")
-    void rspInputFail(int value){
+    void rspInputFail(int value) {
         assertThatExceptionOfType(RspException.class)
                 .isThrownBy(() -> Rsp.of(value))
-                .withMessage("가위바위보 입력이 잘못 되었습니다.");
+                .withMessage(value + "은 잘못된 입력값입니다. 1, 2, 3의 숫자 중 하나를 입력하세요.");
     }
 }
