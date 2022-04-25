@@ -13,9 +13,9 @@ import static org.assertj.core.api.Assertions.*;
 import static org.hamcrest.CoreMatchers.is;
 
 
-public class ViewInputTest {
+public class RspTest {
 
-/*    @Test
+    @Test
     @DisplayName("입력한 정수가 enum 값으로 잘 바뀌었는지")
     void rspInput() throws RspException {
         Rsp rsp = Rsp.ROCK;
@@ -23,7 +23,7 @@ public class ViewInputTest {
         Rsp input = Rsp.of(1);
 
         assertThat(rsp == input).isTrue();
-    }*/
+    }
 
     static Stream<Arguments> rsp(){
         return Stream.of(
