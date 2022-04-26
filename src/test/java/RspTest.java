@@ -15,16 +15,6 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class RspTest {
 
-    @Test
-    @DisplayName("입력한 정수가 enum 값으로 잘 바뀌었는지")
-    void rspInput() throws RspException {
-        Rsp rsp = Rsp.ROCK;
-
-        Rsp input = Rsp.of(1);
-
-        assertThat(rsp == input).isTrue();
-    }
-
     static Stream<Arguments> rsp(){
         return Stream.of(
           Arguments.arguments(1, Rsp.ROCK),
