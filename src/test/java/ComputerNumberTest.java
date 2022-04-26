@@ -18,21 +18,17 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ComputerNumberTest {
 
-    static List<Integer> autoNumbers() {
-        final List<Integer> numbers = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            ComputerNumber computerNumber = new ComputerNumber();
-            numbers.add(computerNumber.getComputerNumber());
-        }
-
-        return numbers;
-    }
-
     @Test
     @DisplayName("컴퓨터 자동 번호들이 범위 안에서 잘 생성되는지?")
     void test() {
-        assertThat(autoNumbers()).contains(1,2,3);
+        for (int i = 0; i < 10; i++) {
+            ComputerNumber computerNumber = new ComputerNumber();
+
+            assertThat(computerNumber.getComputerNumber() == 1 ||
+                    computerNumber.getComputerNumber() == 2 ||
+                    computerNumber.getComputerNumber() == 3).isTrue();
+        }
+
     }
 }
 
